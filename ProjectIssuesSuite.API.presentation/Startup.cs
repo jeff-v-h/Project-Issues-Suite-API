@@ -49,6 +49,7 @@ namespace ProjectIssuesSuite.API.presentation
                     builder =>
                     {
                         builder.WithOrigins(
+                            "https://project-issues-suite.azurewebsites.net",
                             "http://localhost:8080")
                             .AllowAnyMethod()
                             .AllowAnyHeader()
