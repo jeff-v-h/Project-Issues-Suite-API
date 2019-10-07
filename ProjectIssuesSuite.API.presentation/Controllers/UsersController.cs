@@ -62,12 +62,6 @@ namespace ProjectIssuesSuite.API.presentation.Controllers
                 return BadRequest(ModelState);
             }
 
-            // user must use a deltatre email
-            if (!user.SigninName.Contains("@deltatre"))
-            {
-                return BadRequest("An approved email must be used to create user.");
-            }
-
             // null is returned if the User was not created successfully
             UserViewModel userVM = await _manager.CreateUser(user);
             if (userVM == null)
@@ -90,12 +84,6 @@ namespace ProjectIssuesSuite.API.presentation.Controllers
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
-            }
-
-            // user must use a deltatre email
-            if (!newUserObject.SigninName.Contains("@deltatre"))
-            {
-                return BadRequest("An approved email must be used for the signin name.");
             }
 
             // replace the User with the new info above
